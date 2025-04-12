@@ -18,7 +18,7 @@ public class SortedSquares {
         }
 
         // Step 4: Create object of Solution class and call the sortedSquares function
-        Solution solution = new Solution();
+        Solution2 solution = new Solution2();
         int[] result = solution.sortedSquares(nums);
 
         // Step 5: Print the resulting sorted squares array
@@ -33,7 +33,7 @@ public class SortedSquares {
 }
 
 // This class contains the logic to compute the squares of elements and return them in sorted order
-class Solution {
+class Solution2 {
     public int[] sortedSquares(int[] nums) {
         int n = nums.length;
         int[] result = new int[n];
