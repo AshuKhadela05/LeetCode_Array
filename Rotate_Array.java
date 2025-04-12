@@ -4,62 +4,61 @@ public class Rotate_Array {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        // Step 1: Input array size
+        // Step 1: Input size of the array
         System.out.println("Enter number of elements:");
         int n = sc.nextInt();
 
-        // Step 2: Create array of size 'n'
         int[] nums = new int[n];
 
-        // Step 3: Input array elements
+        // Step 2: Input the array elements
         System.out.println("Enter the elements:");
-        for (int i = 0; i < n; i = i + 1) {
+        for (int i = 0; i < n; i++) {
             nums[i] = sc.nextInt();
         }
 
-        // Step 4: Input number of rotations
+        // Step 3: Input number of rotations
         System.out.println("Enter k (number of rotations):");
         int k = sc.nextInt();
 
-        // Step 5: Rotate the array to the right by 'k' steps
-        rotate(nums, k);
+        // Step 4: Call the rotate method using Solution class
+        Solution1 solution = new Solution1();
+        solution.rotate(nums, k);
 
-        // Step 6: Print the rotated array
+        // Step 5: Print the rotated array
         System.out.println("Array after rotation:");
-        for (int i = 0; i < nums.length; i = i + 1) {
+        for (int i = 0; i < nums.length; i++) {
             System.out.print(nums[i] + " ");
         }
 
-        sc.close(); // Close the scanner to avoid resource leak
+        sc.close(); // Close the scanner
     }
+}
 
-    // Rotates the array to the right by k steps using reverse method
-    public static void rotate(int[] nums, int k) {
-        // Handle case when k > array length
+// This class contains the logic to rotate an array to the right by k steps
+class Solution1 {
+    public void rotate(int[] nums, int k) {
+        // Handle case when k is larger than array length
         k = k % nums.length;
 
-        // Reverse the whole array
+        // Step 1: Reverse the whole array
         reverse(nums, 0, nums.length - 1);
 
-        // Reverse first k elements
+        // Step 2: Reverse first k elements
         reverse(nums, 0, k - 1);
 
-        // Reverse the remaining elements
+        // Step 3: Reverse the rest of the elements
         reverse(nums, k, nums.length - 1);
     }
 
-    // Reverses the elements of the array between left and right indices
-    public static void reverse(int[] nums, int left, int right) {
+    // Reverses the elements from index 'left' to 'right'
+    public void reverse(int[] nums, int left, int right) {
         while (left < right) {
-            // Swap elements at positions 'left' and 'right'
             int temp = nums[left];
             nums[left] = nums[right];
             nums[right] = temp;
 
-            // Move towards the middle
             left = left + 1;
             right = right - 1;
         }
     }
 }
-
