@@ -4,23 +4,23 @@ public class MajorityElement2 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        // Step 1: Input array size
+        // Step 1: Input the number of elements
         System.out.println("Enter number of elements:");
         int n = sc.nextInt();
 
         int[] nums = new int[n];
 
-        // Step 2: Input array elements
+        // Step 2: Input the array elements
         System.out.println("Enter the elements:");
         for (int i = 0; i < n; i++) {
             nums[i] = sc.nextInt();
         }
 
-        // Step 3: Call the majorityElement method from Solution class
+        // Step 3: Create an instance of Solution class and call the method
         Solution solution = new Solution();
         List<Integer> result = solution.majorityElement(nums);
 
-        // Step 4: Output the result
+        // Step 4: Print elements that appear more than n/3 times
         System.out.println("Elements that appear more than n/3 times:");
         if (result.isEmpty()) {
             System.out.println("None");
@@ -30,35 +30,35 @@ public class MajorityElement2 {
             }
         }
 
-        sc.close(); // Close scanner
+        sc.close(); // Close the Scanner
     }
 }
 
-// Class with the method to find all elements appearing more than n/3 times
+// Class that contains logic to find elements appearing more than n/3 times
 class Solution {
     public List<Integer> majorityElement(int[] nums) {
         int count1 = 0, count2 = 0;
-        int candidate1 = 0, candidate2 = 1; // initialize different default candidates
+        int candidate1 = 0, candidate2 = 1; // Initial candidates (can be any two different numbers)
 
-        // First pass: Find up to 2 candidates
+        // First pass: Find two potential candidates for majority elements
         for (int num : nums) {
             if (num == candidate1) {
-                count1++;
+                count1++; // Increment count for candidate1
             } else if (num == candidate2) {
-                count2++;
+                count2++; // Increment count for candidate2
             } else if (count1 == 0) {
-                candidate1 = num;
+                candidate1 = num; // Assign new candidate1
                 count1 = 1;
             } else if (count2 == 0) {
-                candidate2 = num;
+                candidate2 = num; // Assign new candidate2
                 count2 = 1;
             } else {
-                count1--;
+                count1--; // Reduce both counts if no match
                 count2--;
             }
         }
 
-        // Second pass: Verify actual counts
+        // Second pass: Count actual frequency of the candidates
         count1 = 0;
         count2 = 0;
         for (int num : nums) {
@@ -69,7 +69,7 @@ class Solution {
             }
         }
 
-        // Prepare result list
+        // Prepare the result list by checking if counts are greater than n/3
         List<Integer> result = new ArrayList<>();
         int n = nums.length;
         if (count1 > n / 3) {
@@ -79,6 +79,7 @@ class Solution {
             result.add(candidate2);
         }
 
-        return result;
+        return result; // Return list of valid majority elements
     }
 }
+
