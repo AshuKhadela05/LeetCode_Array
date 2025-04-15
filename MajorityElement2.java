@@ -17,7 +17,7 @@ public class MajorityElement2 {
         }
 
         // Step 3: Create an instance of Solution class and call the method
-        Solution solution = new Solution();
+        Solution5 solution = new Solution5();
         List<Integer> result = solution.majorityElement(nums);
 
         // Step 4: Print elements that appear more than n/3 times
@@ -35,7 +35,7 @@ public class MajorityElement2 {
 }
 
 // Class that contains logic to find elements appearing more than n/3 times
-class Solution {
+class Solution5 {
     public List<Integer> majorityElement(int[] nums) {
         int count1 = 0, count2 = 0;
         int candidate1 = 0, candidate2 = 1; // Initial candidates (can be any two different numbers)
