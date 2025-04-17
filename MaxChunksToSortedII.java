@@ -17,7 +17,7 @@ public class MaxChunksToSortedII {
         }
 
         // Step 3: Create object of Solution class and call the method
-        Solution solution = new Solution();
+        Solution7 solution = new Solution7();
         int result = solution.maxChunksToSorted(arr);
 
         // Step 4: Output the result
@@ -28,7 +28,7 @@ public class MaxChunksToSortedII {
 }
 
 // Class that contains the logic for finding max chunks
-class Solution {
+class Solution7 {
     public int maxChunksToSorted(int[] arr) {
         int n = arr.length;
         int[] rightMin = new int[n + 1]; // rightMin[i] stores min value from i to end
